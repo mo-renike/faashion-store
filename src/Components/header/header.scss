@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--accent-color);
+
+  .logo {
+    font-weight: bold;
+    font-size: 2rem;
+    color: var(--light-color);
+  }
+  &__nav {
+    > * {
+      font-size: 18px;
+      margin: 10px;
+      color: var(--light-color);
+      transition: all 0.9s ease;
+      &:hover {
+        border-bottom: 1px solid;
+      }
+    }
+  }
+}

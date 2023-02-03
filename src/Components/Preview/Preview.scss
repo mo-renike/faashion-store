@@ -1,0 +1,21 @@
+@import "../../App.scss";
+
+.preview {
+  padding: 1rem 0;
+  margin-top: 1rem;
+
+  &__title {
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  &__collection {
+    display: flex;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

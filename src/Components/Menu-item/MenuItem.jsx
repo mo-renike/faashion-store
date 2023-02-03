@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import "./MenuItem.scss";
 
 const MenuItem = ({ title, img, size, link }) => {
+
+
   return (
-    <Link to={`/${link}`} className={`${size} menu_item`}>
+    <Link to={`${link}`} className={`${size} menu_item`}
+    >
       <div
         className="background-img"
         style={{

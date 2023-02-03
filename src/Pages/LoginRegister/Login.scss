@@ -1,0 +1,24 @@
+.login {
+  padding: 2rem;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  &__forms {
+    span {
+      font-size: 0.7rem;
+      margin-top: 10px;
+
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+
+        color: var(--accent-color);
+      }
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}

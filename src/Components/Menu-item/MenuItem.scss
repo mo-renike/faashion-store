@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .menu_item {
   min-width: 30%;
   height: 37vh;
@@ -11,6 +13,9 @@
   cursor: pointer;
   overflow: hidden;
 
+  @include respond(phone) {
+    width: 100%;
+  }
   &.large {
     height: 50vh;
   }
