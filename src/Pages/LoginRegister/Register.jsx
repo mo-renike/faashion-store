@@ -1,12 +1,14 @@
+import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import React from "react";
 import { Button, Input } from "../../Components/Inputs/Inputs";
 import { auth, db } from "../../firebase/firebaseConfig.js";
 
 import "./Login.scss";
 
 const Register = ({ loginOpt }) => {
+    const navigate = useNavigate();
     const [form, setForm] = React.useState({
         displayName: "",
         email: "",
@@ -32,11 +34,12 @@ const Register = ({ loginOpt }) => {
                     .catch((error) => {
                         console.log("Error adding document: ", error);
                     });
-                console.log(user);
+                navigate("/shop");
             })
             .catch((error) => {
                 console.log(error.message);
             });
+
     };
 
     const handleChange = (e) => {
@@ -93,7 +96,7 @@ const Register = ({ loginOpt }) => {
             </form>
 
             <span>
-                Don't have an account? <button onClick={loginOpt}>Sign Up</button>
+                Already have an account? <button onClick={loginOpt}>Login</button>
             </span>
         </div>
     );

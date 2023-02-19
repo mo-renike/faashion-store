@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { Button, Input } from "../../Components/Inputs/Inputs";
 import "./Login.scss";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -6,6 +7,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, signInWithGoogle } from "../../firebase/firebaseConfig.js";
 
 const Login = ({ registerOpt }) => {
+    const navigate = useNavigate();
+
     const [form, setForm] = React.useState({
         email: "",
         password: "",
@@ -20,6 +23,7 @@ const Login = ({ registerOpt }) => {
                 email: "",
                 password: "",
             });
+            navigate("/shop");
         } catch (error) {
             console.log(error.message);
         }
