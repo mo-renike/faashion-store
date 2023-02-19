@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
-        console.log("user", user);
         const userRef = await createUserProfileDocument(user);
         onSnapshot(userRef, (snapShot) => {
           setCurrentUser({
@@ -26,7 +25,6 @@ function App() {
         setCurrentUser(user);
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

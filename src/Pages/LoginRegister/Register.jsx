@@ -2,27 +2,23 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import React from "react";
 import { Button, Input } from "../../Components/Inputs/Inputs";
-import {
-    auth,
-    db,
-} from "../../firebase/firebaseConfig.js";
+import { auth, db } from "../../firebase/firebaseConfig.js";
 
 import "./Login.scss";
 
 const Register = ({ loginOpt }) => {
-
     const [form, setForm] = React.useState({
         displayName: "",
         email: "",
         password: "",
     });
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const { displayName, email, password } = form;
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
+                // Signed in
                 const user = userCredential.user;
                 const userRef = doc(db, "users", user.uid);
                 setDoc(userRef, { displayName, email })
@@ -40,14 +36,13 @@ const Register = ({ loginOpt }) => {
             })
             .catch((error) => {
                 console.log(error.message);
-
             });
-    }
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
-    }
+    };
 
     const showPassword = () => {
         const pwd = document.querySelector(".pwd input");

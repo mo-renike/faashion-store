@@ -1,23 +1,35 @@
 import React from "react";
 import { Button, Input } from "../../Components/Inputs/Inputs";
 import "./Login.scss";
-import { signInWithGoogle } from "../../firebase/firebaseConfig.js";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+import { auth, signInWithGoogle } from "../../firebase/firebaseConfig.js";
 
 const Login = ({ registerOpt }) => {
     const [form, setForm] = React.useState({
         email: "",
         password: "",
     });
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setForm({
-            email: "",
-            password: "",
-        });
+        const { email, password } = form;
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            setForm({
+                email: "",
+                password: "",
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
     };
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setForm({ [name]: value });
+        setForm(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
     };
 
     return (
@@ -25,7 +37,7 @@ const Login = ({ registerOpt }) => {
             <div className="login__forms_header">
                 <h2>Login to your account</h2>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <Input
                     type="email"
                     name="email"
@@ -43,7 +55,7 @@ const Login = ({ registerOpt }) => {
                     onChange={handleChange}
                 />
                 <div className="btns">
-                    <Button type="submit" title="Login" /> OR
+                    <Button onClick={handleSubmit} type="submit" title="Login" /> OR
                     <Button
                         type="button"
                         onClick={signInWithGoogle}
