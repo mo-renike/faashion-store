@@ -22,9 +22,9 @@ export const Input = ({
     );
 };
 
-export const Button = ({ title, onClick, className }) => {
+export const Button = ({ title, onClick, className, isGoogle }) => {
     return (
-        <button type="submit" onClick={onClick} className={`button ${className}`}>
+        <button type="submit" onClick={onClick} className={`button ${isGoogle ? "google" : " "}`}>
             {title}
         </button>
     );

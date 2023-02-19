@@ -1,9 +1,35 @@
+@import "../../App.scss";
+
 .login {
   padding: 2rem;
   width: 100%;
-  max-width: 300px;
+  height: 85vh;
+  display: flex;
+  width: 450px;
+  justify-content: center;
+  align-items: center;
   margin: auto;
+
+  @include respond(phone) {
+    width: 100%;
+  }
+
   &__forms {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    &_header {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+    }
     span {
       font-size: 0.7rem;
       margin-top: 10px;
@@ -12,13 +38,41 @@
         background: none;
         border: none;
         padding: 0;
-
         color: var(--accent-color);
       }
     }
   }
+
   form {
     display: flex;
     flex-direction: column;
+
+    .btns {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 2px;
+      align-items: center;
+      justify-content: center;
+      > * {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+    .pwd {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      span {
+        background: none;
+        border: none;
+        position: absolute;
+        right: 6px;
+        padding: 0;
+        cursor: pointer;
+        color: var(--accent-color);
+      }
+    }
   }
 }

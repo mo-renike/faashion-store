@@ -3,20 +3,25 @@
   background: none;
   border: 1px solid var(--accent-color);
   margin-top: 0.7rem;
+
   &:focus {
     border: 2px solid var(--accent-color);
   }
 }
 
 .button {
-  background: var(--accent-color);
+  background: var(--dark-color);
   border: none;
   margin-top: 0.7rem;
   padding: 10px 7px;
   color: var(--light-color);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   transition: 0.5s ease;
+
+  &.google {
+    background: var(--accent-color);
+  }
   &:hover {
     background: var(--dark-color);
   }

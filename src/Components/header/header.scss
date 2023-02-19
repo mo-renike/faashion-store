@@ -1,21 +1,33 @@
+@import "../../App.scss";
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: var(--accent-color);
-
+  @include respond(phone) {
+    padding: 1rem;
+  }
   .logo {
     font-weight: bold;
     font-size: 2rem;
     color: var(--light-color);
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
   }
   &__nav {
+    display: flex;
     > * {
-      font-size: 18px;
-      margin: 10px;
+      font-size: 1rem;
+      margin: 0.6rem;
       color: var(--light-color);
       transition: all 0.9s ease;
+      cursor: pointer;
+
+      border: 1px solid transparent;
+
       &:hover {
         border-bottom: 1px solid;
       }

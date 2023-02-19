@@ -3,7 +3,7 @@ import PreviewItem from "../PreviewItem/PreviewItem";
 import "./Preview.scss";
 
 const Preview = ({ title, items }) => {
-    console.log(title);
+
     return (
         <div className="preview">
             <h2 className="preview__title">{title}</h2>
